@@ -5,7 +5,7 @@ with
             --Função concat() adotada para concatenar nomes, nomes do meio e sobrenomes.
             , concat(ifnull(firstname,' '),' ',ifnull(middlename,' '),' ',ifnull(lastname,' ')) as nome_completo
             , cast(persontype as varchar) as tipo_pessoa
-            --namestyle
+            --namestyle --não será usado agora
             --suffix
             --emailpromotion
             --additionalcontactinfo
