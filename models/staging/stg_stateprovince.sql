@@ -6,7 +6,7 @@ with
             , cast(stateprovincecode as varchar) as codigo_estado
             , cast(countryregioncode as varchar) as fk_pais            
             , cast(territoryid as varchar) as fk_territorio
-            --isonlystateprovinceflag --will not be used now
+            --isonlystateprovinceflag --não será usado agora
             --rowguid
             --modifieddate 
         from {{ source("erp", "stateprovince") }}

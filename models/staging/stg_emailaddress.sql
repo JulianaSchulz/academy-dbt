@@ -4,7 +4,7 @@ with
             cast(emailaddressid as int) as pk_email
             , cast(emailaddress as varchar) as email
             , cast(businessentityid as varchar) as id_entid_comercial_email
-            --rowguid --will not be used now            
+            --rowguid --não será usado agora           
             --modifieddate            
         from {{ source("erp", "emailaddress") }}
     )

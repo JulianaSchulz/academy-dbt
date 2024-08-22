@@ -97,7 +97,7 @@ sources:
       - name: salesorderheadersalesreason
         description: 'Dados da tabela salesorderheadersalesreason.'
         columns:
-          - name: id_pedido
+          - name: fk_pedido
             description: 'Chave estrangeira da tabela salesorderheadersalesreason.'
             tests:
               - not_null

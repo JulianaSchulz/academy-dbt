@@ -13,7 +13,7 @@ with
             , coalesce(cast(productsubcategoryid as varchar), 'Unknown Subcategory') as id_subcatecoria_produto
             --conversão de data.
             , sellstartdate::date as data_inicio_venda
-            --finishedgoodsflag --will not be used now
+            --finishedgoodsflag --não será usado agora
             --size
             --makeflag
             --productline

@@ -5,8 +5,7 @@ with
             , cast(storeid as varchar) as fk_loja
             , cast(territoryid as varchar) as fk_territorio
             , cast(personid as varchar) as fk_pessoa
-            -- will not be used now
-            --rowguide
+            --rowguide --não será usado agora
             --modifieddata 
         from {{ source('erp', 'customer') }}
     )

@@ -7,7 +7,7 @@ with
             , cast(productid as varchar) as fk_produto
             , cast(unitprice as float) as preco_unitario
             , cast(unitpricediscount as float) as desconto_preco_unitario
-            --carriertrackingnumber -- 
+            --carriertrackingnumber --não será usado agora
             --specialofferid
             --rowguid
             --modifiedate            

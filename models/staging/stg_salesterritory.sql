@@ -5,10 +5,10 @@ with
             , cast(name as varchar) as nome_territorio
             , cast(countryregioncode as varchar) as fk_pais     
             , cast(salesytd as int) as vendas_acumuladas
-            --saleslastyear
+            --saleslastyear --não será usado agora
             --costyts
             --costlastyear
-            --rowguid --will not be used now            
+            --rowguid         
             --modifieddate            
         from {{ source("erp", "salesterritory") }}
     )

@@ -6,7 +6,7 @@ with
             , cast(city as varchar) as cidade
             , cast(stateprovinceid as varchar) as fk_estado
             , cast(postalcode as varchar) as codigo_postal
-            -- addressline2 -- will not be used now
+            -- addressline2 -- não será usado agora
             -- spatiallocation        
             -- rowguid   
             -- modifieddate      
