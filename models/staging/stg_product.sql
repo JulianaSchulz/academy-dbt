@@ -6,13 +6,13 @@ with
             , cast(productnumber as varchar) as numero_produto
             , cast(safetystocklevel as int) as _nivel_estoque_seguranca
             , cast(reorderpoint as varchar) as ponto_de_reabastecimento
-            , cast(standardcost as int) as custo_padrao
-            , cast(listprice as varchar) as preco_de_tabela
             , cast(daystomanufacture as varchar) as dias_para_fabricar
             --conversão de productsubcategoryid para varchar e tratamento de nulos.
-            , coalesce(cast(productsubcategoryid as varchar), 'Unknown Subcategory') as id_subcatecoria_produto
+            , cast(productsubcategoryid as int) as id_subcategoria_produto
             --conversão de data.
             , sellstartdate::date as data_inicio_venda
+            --standardcost
+            --listprice
             --finishedgoodsflag --não será usado agora
             --size
             --makeflag
