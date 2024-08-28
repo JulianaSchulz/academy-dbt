@@ -18,7 +18,11 @@ with stg_salesorderheadersalesreason as (
 
 , transformed as (
     select
-        id_pedido_venda
+        {{ dbt_utils.generate_surrogate_key(
+                    ['id_pedido_venda']
+                )
+            }} as sk_pedido_venda  -- Chave surrogada para o id pedido de venda.
+        , id_pedido_venda
         -- função usada para agregar em uma linha quaisquer motivos múltiplos atribuídos a um único pedido.
         , listagg(motivo_venda, ', ') within group (order by motivo_venda asc) as motivo_venda_agregada
     from reasonbyorderid

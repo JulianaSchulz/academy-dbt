@@ -3,6 +3,11 @@ version: 2
 models:
   - name: dim_motivo_venda
     columns:
+      - name: sk_pedido_venda
+        description: "Chave surrogada da tabela motivo da venda, com o id de cada pedido."
+        tests:
+          - unique              
+          - not_null
       - name: id_pedido_venda
         description: "Chave estrangeira da tabela motivo da venda, com o id de cada pedido."
         tests:

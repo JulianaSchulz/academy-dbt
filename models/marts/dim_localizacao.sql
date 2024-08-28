@@ -22,7 +22,10 @@ with stg_salesorderheader as (
 , transformed as (
     select
         -- criado a chave surrogate autoincremental para o id do endereço de envio.
-        row_number() over (order by stg_salesorderheader.fk_endereco_envio) as endereco_envio_sk
+        {{ dbt_utils.generate_surrogate_key(
+                    ['fk_endereco_envio']
+                )
+            }} as sk_endereco_envio  -- Chave surrogada para o id do endereco de envio.
         , stg_salesorderheader.fk_endereco_envio 
         , stg_address.cidade as cidade
         , stg_stateprovince.nome_estado as estado

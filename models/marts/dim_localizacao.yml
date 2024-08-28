@@ -3,8 +3,8 @@ version: 2
 models:
   - name: dim_localizacao
     columns:
-      - name: endereco_envio_sk
-        description: "Chave surrogate da tabela localização."
+      - name: sk_endereco_envio
+        description: "Chave surrogada da tabela localização."
         tests:
           - unique
           - not_null

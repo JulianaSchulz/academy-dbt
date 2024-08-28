@@ -4,7 +4,7 @@ models:
   - name: dim_vendedor
     columns:
       - name: sk_vendedor
-        description: "Chave surrogate de vendedor da tabela dim_vendedor."
+        description: "Chave surrogada de vendedor da tabela dim_vendedor."
         tests:
           - unique              
           - not_null

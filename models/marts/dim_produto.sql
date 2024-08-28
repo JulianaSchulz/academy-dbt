@@ -22,25 +22,19 @@ with
         from {{ref('stg_productcategory')}}
     )
 
-    , salesorderdetail as (
-        select
-            fk_produto 
-            , preco_unitario
-        from {{ref('stg_salesorderdetail')}}
-    )
-
     , transformed as (
         select 
-            SEQ8() as sk_produto  -- Chave surrogate usando SEQ8()
+            {{ dbt_utils.generate_surrogate_key(
+                    ['pk_produto']
+                )
+            }} as sk_produto  -- Chave surrogada para o id_produto. 
             , product.pk_produto
             , product.nome_produto
             , productcategory.nome_categoria
             , productsubcategory.nome_subcategoria
-            , salesorderdetail.preco_unitario
         from product
         left join productsubcategory on product.id_subcategoria_produto = productsubcategory.id_subcategoria_produto
         left join productcategory on productsubcategory.id_categoria_produto = productcategory.id_categoria_produto
-        left join salesorderdetail on salesorderdetail.fk_produto = product.pk_produto
     )
 
 select *
