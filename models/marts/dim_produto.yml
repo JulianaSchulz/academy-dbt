@@ -4,13 +4,16 @@ models:
   - name: dim_produto
     columns:
       - name: sk_produto
-        description: "Chave surrogate de produto da tabela dim_produto."
+        description: "Chave surrogada de produto da tabela dim_produto."
         tests:
           - unique              
           - not_null
       
       - name: pk_produto
         description: "Chave primaria da tabela produto, com o id de cada produto."
+        tests:
+          - unique              
+          - not_null
           
       - name: nome_produto
         description: "Nome de cada produto da tabela dim_produto."
@@ -20,7 +23,4 @@ models:
 
       - name: nome_subcategoria
         description: "Nome da subcategoria de cada produto."
-
-      - name: preco_unitario
-        description: "Valor dos produtos."
       

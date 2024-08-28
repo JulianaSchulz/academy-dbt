@@ -21,7 +21,10 @@ with
 
     , transformed as (
         select 
-            SEQ8() as sk_vendedor  -- Chave surrogate usando SEQ8()
+            {{ dbt_utils.generate_surrogate_key(
+                    ['id_vendedor']
+                )
+            }} as sk_vendedor  -- Chave surrogada para o id_vendedor.
             , salesperson.id_vendedor
             , employee.cargo
             , employee.genero
