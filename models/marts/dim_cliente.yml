@@ -3,7 +3,7 @@ version: 2
 models:
   - name: dim_cliente
     columns:
-      - name: cliente_sk
+      - name: sk_cliente
         description: "Chave surrogate da tabela cliente"
         tests:
           - unique

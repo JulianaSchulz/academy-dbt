@@ -11,9 +11,12 @@ with stg_salesorderheader as (
 )
 
 , transformed as (
-    select 
-        -- criado a chave surrogate autoincremental para o id do cartao de credito.
-        row_number() over (order by stg_salesorderheader.fk_cartao_credito) as cartao_credito_sk 
+    select
+        -- Criado a chave surrogate para o id do cartão de crédito. 
+        {{ dbt_utils.generate_surrogate_key(
+                        ['fk_cartao_credito']
+                    )
+                }} as sk_cartao_credito 
         , stg_salesorderheader.fk_cartao_credito as id_cartao_credito
         , stg_creditcard.tipo_cartao
     from stg_salesorderheader 
