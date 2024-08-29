@@ -24,10 +24,11 @@ with
 
     , transformed as (
         select 
+            -- Criado a chave surrogada para o id_produto.
             {{ dbt_utils.generate_surrogate_key(
                     ['pk_produto']
                 )
-            }} as sk_produto  -- Chave surrogada para o id_produto. 
+            }} as sk_produto   
             , product.pk_produto
             , product.nome_produto
             , productcategory.nome_categoria

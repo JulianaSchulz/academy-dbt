@@ -35,16 +35,19 @@ with
 
     , transformed as (
         select
-        -- criado a chave surrogate autoincremental para o id do cliente.
-        SEQ8() as cliente_sk  -- Chave surrogate usando SEQ8()
-        , pk_cliente
-        , nome_completo
-        , nome_loja
-        , case 
-            when fk_pessoa is null and fk_loja is not null then 'Store'
-            when fk_pessoa is not null and fk_loja is null then 'Natural Person'
-            when fk_pessoa is not null and fk_loja is not null then 'Store Contact'
-            end as tipo_pessoa
+            -- Criado a chave surrogate para o id do cliente.     
+            {{ dbt_utils.generate_surrogate_key(
+                        ['pk_cliente']
+                    )
+                }} as sk_cliente
+            , pk_cliente
+            , nome_completo
+            , nome_loja
+            , case 
+                when fk_pessoa is null and fk_loja is not null then 'Store'
+                when fk_pessoa is not null and fk_loja is null then 'Natural Person'
+                when fk_pessoa is not null and fk_loja is not null then 'Store Contact'
+                end as tipo_pessoa
         from joined
     )
 

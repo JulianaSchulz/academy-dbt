@@ -3,7 +3,7 @@ version: 2
 models:
   - name: dim_cartao_credito
     columns:
-      - name: cartao_credito_sk
+      - name: sk_cartao_credito
         description: Chave substituta do id do cartao de credito.
         tests:
           - unique

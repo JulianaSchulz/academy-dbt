@@ -21,10 +21,11 @@ with
 
     , transformed as (
         select 
+            -- Criado a chave surrogada para o id_vendedor.
             {{ dbt_utils.generate_surrogate_key(
                     ['id_vendedor']
                 )
-            }} as sk_vendedor  -- Chave surrogada para o id_vendedor.
+            }} as sk_vendedor
             , salesperson.id_vendedor
             , employee.cargo
             , employee.genero
