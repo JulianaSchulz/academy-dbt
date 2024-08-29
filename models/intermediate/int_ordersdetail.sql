@@ -40,9 +40,9 @@ with
              -- Valor referente ao preço do produto sem imposto e frete.
             , preco_unitario * (1 - desconto_preco_unitario) * qtd_pedido as total_liquido 
             -- rateado o frete pela quantidade de ítens no mesmo pedido.
-            , frete / count(*) over(partition by fk_pedido) as frete_rateado
+            , cast(frete / count(*) over(partition by fk_pedido) as numeric(18,2)) as frete_rateado
             -- rateado o imposto pela quantidade de ítens no mesmo pedido.
-            , imposto / count(*) over(partition by fk_pedido) as imposto_rateado
+            , cast(imposto / count(*) over(partition by fk_pedido) as numeric(18,2)) as imposto_rateado
             , preco_unitario * qtd_pedido * (1 - desconto_preco_unitario) + imposto_rateado + frete_rateado as total_bruto
         from joined
     )
