@@ -1,25 +1,17 @@
-# Indicium Academy
-
-Repositório para ser utilizado no desafio final, para a conclusão do Programa Lighthouse by Indicium. Faça o fork deste repositório e o utilize durante o desafio para fazer a ingestão das tabelas do SAP do Adventure Works.
-
-## Instruções
-
-Todas as tabelas do banco fonte do SAP da Adventure Works serão carregadas como seeds pelo dbt. Os arquivos .csv com os dados já estão na pasta de seeds.
-
-Para fazer o carregamento de todas as tabelas usem o comando:
-- `dbt seed`
-
-Para carregar uma tabela especifíca utilizem o comando
-- `dbt seed -s nome_do_csv`
-
-### Problemas comuns
-
-Em caso a linha de comando do dbt fique com o status de estar sempre carregando, ou, o job do comando `dbt seed` fique rodando indefinitivamente mesmo após as 64 tabelas forem carregadas você precisará reiniciar o terminal. Para isso, clique nos três pontos no canto inferior direito ou no lado direito da linha de comando e escolha a opção `Restart IDE`.
+# Projeto Adventure Works
 
 
-## Recursos:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [dbt community](http://community.getbdt.com/) to learn from other analytics engineers
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+Este projeto é dedicado a transformar e modelar dados do conjunto de dados AdventureWorks, hospedado no Snowflake, para prepará-los para análise e visualização inteligentes. 
+AdventureWorks é um banco de dados de amostra fornecido pela Microsoft, que simula as operações de uma empresa de varejo, incluindo vendas, gerenciamento de produtos e interações com clientes.
+
+As transformações neste projeto se concentram em:
+
+Modelagem de dados: construção de dimensões robustas e tabelas de fatos e agregadas para dar suporte a várias análises de negócios.
+Qualidade dos dados: garantia da integridade dos dados por meio de testes e validação rigorosos.
+Otimização de desempenho: simplificação de consultas e modelos para processamento de dados eficiente e tempos de resposta rápidos.
+Prontidão para visualização: estruturação de dados de uma forma que facilite a integração fácil com ferramentas de visualização de dados para relatórios e painéis.
+Este projeto serve como uma camada fundamental para inteligência de negócios, permitindo que as partes interessadas obtenham insights valiosos ​​de dados bem estruturados e confiáveis.
+
+Para obter mais informações sobre os dados Adventure Works, acesse seu dicionário de dados  [AQUI](https://dataedo.com/download/AdventureWorks.pdf).
+
+Todos os esquemas, tabelas e interações também podem ser verificados [AQUI](https://moidulhassan.wordpress.com/wp-content/uploads/2014/07/adventureworks2008_schema.gif).
