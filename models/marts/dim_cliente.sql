@@ -44,9 +44,9 @@ with
             , nome_completo
             , nome_loja
             , case 
-                when fk_pessoa is null and fk_loja is not null then 'Store'
-                when fk_pessoa is not null and fk_loja is null then 'Natural Person'
-                when fk_pessoa is not null and fk_loja is not null then 'Store Contact'
+                when fk_pessoa is null and fk_loja is not null then 'Loja'
+                when fk_pessoa is not null and fk_loja is null then 'Pessoa Física'
+                when fk_pessoa is not null and fk_loja is not null then 'Contato da loja'
                 end as tipo_pessoa
         from joined
     )
