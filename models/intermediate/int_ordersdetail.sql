@@ -12,6 +12,22 @@ with
         from {{ref('stg_salesorderdetail')}}
     )
 
+    , status_pedido as (
+        select
+            pk_pedido
+            , status_pedido
+            , case 
+                when status_pedido = 1 then 'Em processo'
+                when status_pedido = 2 then 'Aprovado'
+                when status_pedido = 3 then 'Em espera'
+                when status_pedido = 4 then 'Rejeitado'
+                when status_pedido = 5 then 'Enviado'
+                when status_pedido = 6 then 'Cancelado'
+                else 'sem_status'
+            end as nome_status_pedido
+        from salesorderheader
+    )
+
     , joined as (
             select
                 orderdetail.pk_pedido_detalhado
@@ -25,6 +41,7 @@ with
                 , salesorderheader.data_pedido
                 , salesorderheader.data_envio
                 , salesorderheader.numero_pedido
+                , status_pedido.nome_status_pedido
                 , orderdetail.qtd_pedido
                 , orderdetail.preco_unitario
                 , orderdetail.desconto_preco_unitario
@@ -32,6 +49,7 @@ with
                 , salesorderheader.imposto                
             from orderdetail
             inner join salesorderheader on orderdetail.fk_pedido = salesorderheader.fk_pedido
+            left join status_pedido on salesorderheader.pk_pedido = status_pedido.pk_pedido
     )
 
     , metricas as (
@@ -69,6 +87,7 @@ with
             , data_envio
             , numero_pedido
             , qtd_pedido
+            , nome_status_pedido
             , preco_unitario
             , desconto_preco_unitario
             , total_liquido
@@ -77,5 +96,6 @@ with
             , total_bruto
         from chave_primaria
     )
+
 select *
 from organizar_colunas
