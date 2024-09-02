@@ -22,8 +22,6 @@ models:
       +materialized: view
     intermediate:
       +materialized: view
-    agregations:
-      +materialized: view
 
 seeds:
   bdt_adventureworks: 
