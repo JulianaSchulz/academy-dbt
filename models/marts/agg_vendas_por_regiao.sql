@@ -46,14 +46,18 @@ with
 
     , metricas as (
         select
-            territorio
+            pk_territorio
+            , pk_pedido
+            , territorio
             , pais
             , count(distinct pk_pedido) AS total_pedidos -- Total de pedidos
             , cast(sum(qtd_pedido * preco_unitario) AS NUMERIC(18,2)) AS total_vendas -- Total de vendas
         FROM joined
-        GROUP BY 
-            pais
+        GROUP BY             
+            pk_territorio
+            , pk_pedido
             , territorio
+            , pais
     )
      
 select * 
