@@ -15,10 +15,13 @@ with
             , cast(subtotal as numeric(18,2)) as subtotal_vendas
             , cast(taxamt as numeric(18,2)) as imposto
             , cast(freight as numeric(18,2)) as frete
-            , cast(totaldue as numeric(18,2)) as total_devido
-            --revisionnumber --não será usado agora.
+            , cast(totaldue as numeric(18,2)) as total_devido           
+        , case
+            when onlineorderflag = True then 'Online'
+            else 'Store'
+            end as pedido_online
+             --revisionnumber --não será usado agora.
             --duedate
-            --onlineorderflag
             --accountnumber
             --billtoaddressid
             --creditcardapprovalcode

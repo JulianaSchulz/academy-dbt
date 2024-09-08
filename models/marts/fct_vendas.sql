@@ -73,6 +73,7 @@ with
             , int_ordersdetail.data_pedido
             , int_ordersdetail.data_envio
             , int_ordersdetail.numero_pedido
+            , int_ordersdetail.pedido_online
             , int_ordersdetail.qtd_pedido
             , int_ordersdetail.preco_unitario
             , int_ordersdetail.desconto_preco_unitario
@@ -80,6 +81,7 @@ with
             , int_ordersdetail.frete_rateado
             , int_ordersdetail.imposto_rateado
             , int_ordersdetail.total_bruto
+            , int_ordersdetail.nome_status_pedido
             , dim_cliente.nome_completo as cliente
             , dim_cliente.nome_loja as loja
             , dim_cliente.tipo_pessoa
@@ -105,6 +107,7 @@ with
             , cliente
             , tipo_pessoa
             , numero_pedido
+            , pedido_online
             , qtd_pedido
             , motivo_venda_agregada 
             , preco_unitario
@@ -112,7 +115,8 @@ with
             , total_liquido
             , frete_rateado
             , imposto_rateado
-            , total_bruto 
+            , total_bruto
+            , nome_status_pedido
             , loja
         from final
     )

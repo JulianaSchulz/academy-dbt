@@ -21,6 +21,14 @@ with
         from {{ref('stg_customer')}}
     )
 
+    , primeiro_pedido as (
+        select
+            salesorderheader.fk_cliente,
+            min(salesorderheader.data_pedido) as data_primeiro_pedido
+        from {{ ref('stg_salesorderheader') }} as salesorderheader
+        group by salesorderheader.fk_cliente
+    )
+
     , joined as (
             select
                 customer.pk_cliente 
@@ -28,9 +36,11 @@ with
                 , person.nome_completo
                 , customer.fk_loja
                 , store.nome_loja
+                , primeiro_pedido.data_primeiro_pedido
             from customer
             left join person on person.id_entid_comercial_pessoa = customer.pk_cliente
             left join store on store.pk_loja = customer.fk_loja
+            left join primeiro_pedido on customer.pk_cliente = primeiro_pedido.fk_cliente
     )
 
     , transformed as (
@@ -43,6 +53,7 @@ with
             , pk_cliente
             , nome_completo
             , nome_loja
+            , data_primeiro_pedido
             , case 
                 when fk_pessoa is null and fk_loja is not null then 'Loja'
                 when fk_pessoa is not null and fk_loja is null then 'Pessoa Física'
