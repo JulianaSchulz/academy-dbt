@@ -41,6 +41,7 @@ with
                 , salesorderheader.data_pedido
                 , salesorderheader.data_envio
                 , salesorderheader.numero_pedido
+                , salesorderheader.pedido_online
                 , status_pedido.nome_status_pedido
                 , orderdetail.qtd_pedido
                 , orderdetail.preco_unitario
@@ -88,6 +89,7 @@ with
             , numero_pedido
             , qtd_pedido
             , nome_status_pedido
+            , pedido_online
             , preco_unitario
             , desconto_preco_unitario
             , total_liquido

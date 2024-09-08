@@ -3,7 +3,7 @@ with
         select
             seq4() as day_offset,
             dateadd(day, seq4(), '2010-01-01'::date) as date
-        from table(generator(rowcount => 5844)) -- 5844 dias cobrem de 2010-01-01 a 2025-12-31
+        from table(generator(rowcount => 1706)) -- 5844 dias cobrem de 2010-01-01 a 2015-12-31
     )
 
 select

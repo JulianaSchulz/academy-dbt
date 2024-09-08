@@ -7,6 +7,17 @@ with
             , vendas_acumuladas as vendas_ano_atual
         from {{ ref('stg_salesperson') }}
     )
+    
+    , pessoas as (
+        select
+            nome_completo as vendedor
+            , id_entid_comercial_pessoa
+            --, id_territorio
+            --, cota_vendas
+            --, vendas_acumuladas as vendas_ano_atual
+        from {{ ref('stg_person') }}
+        where tipo_pessoa = 'Vendedor'
+    )
 
     , metricas_vendas AS (
     SELECT
@@ -24,6 +35,7 @@ with
 SELECT
     vendedores.id_vendedor
     , vendedores.id_territorio
+    , pessoas.vendedor
     , vendedores.cota_vendas
     , vendedores.vendas_ano_atual
     , metricas_vendas.total_quantidade_vendida
@@ -40,3 +52,5 @@ FROM
     vendedores
 LEFT JOIN
     metricas_vendas ON vendedores.id_vendedor = metricas_vendas.fk_vendedor
+LEFT JOIN
+    pessoas ON vendedores.id_vendedor = pessoas.id_entid_comercial_pessoa
