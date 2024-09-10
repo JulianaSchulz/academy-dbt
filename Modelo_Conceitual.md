@@ -13,4 +13,4 @@ como informações sobre vendas, produto, cliente, região, entre outros.
 2 - Foram criadas também 2 tabelas agregadas com informações de vendas por região e vendas por vendedor.
 Ambas contribuíram com a construção do dashboard.
 
-Consulte o diagrama conceitual [AQUI](https://drive.google.com/file/d/1gcUxsKKvdsSs9YdgSs_1sIRnXvL28_D7/view?usp=sharing)
+Consulte o diagrama conceitual [AQUI](https://drive.google.com/file/d/1fwpku3BDiyMm9xGoh8zE0TqAmzW_wuVM/view?usp=sharing)
